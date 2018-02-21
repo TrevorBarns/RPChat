@@ -3,10 +3,10 @@ A Standalone Proximity Roleplaying Chat Resource.
 # Features
 - Proximity Chat
 - /ooc
-- /me
+- /me (Proximity Chat)
 - /ad
-- /roll
-- And More!
+- /roll (Proximity Chat)
+- /twt
 # Credits
 - ESX for the Base.
 # Installation: 

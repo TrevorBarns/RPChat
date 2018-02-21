@@ -10,4 +10,6 @@ A Standalone Proximity Roleplaying Chat Resource.
 # Credits
 - ESX for the Base.
 # Installation: 
-Extract the folder to your resources, rename the folder to "rpchat", and add the resource to the startup configuration.
+- Extract the folder to your resources. 
+- Rename the folder to "rpchat".
+- Add the resource to the startup configuration.

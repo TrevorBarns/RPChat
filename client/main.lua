@@ -1,8 +1,3 @@
---[[
-
-  ESX RP Chat
-
---]]
 
 RegisterNetEvent('sendProximityMessage')
 AddEventHandler('sendProximityMessage', function(id, name, message)

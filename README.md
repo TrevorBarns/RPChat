@@ -8,4 +8,4 @@ A Standalone Proximity Roleplaying Chat Resource.
 - /roll
 - And More!
 # Credits
-- ESX
+- ESX for the Base.

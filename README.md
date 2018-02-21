@@ -1,2 +1,11 @@
 # RPChat
-A standalone Roleplaying Resource addon; Credits: ESX for the Base Code.
+A standalone Proximity Roleplaying Chat Resource. 
+# Features
+- Proximity Chat
+- /ooc
+- /me
+- /ad
+- /roll
+- And More!
+#Credits
+- ESX

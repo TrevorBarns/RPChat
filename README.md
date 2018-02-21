@@ -7,5 +7,5 @@ A standalone Proximity Roleplaying Chat Resource.
 - /ad
 - /roll
 - And More!
-#Credits
+# Credits
 - ESX

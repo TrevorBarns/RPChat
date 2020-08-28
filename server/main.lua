@@ -1,37 +1,44 @@
-  AddEventHandler('chatMessage', function(source, name, message)
-      if string.sub(message, 1, string.len("/")) ~= "/" then
-          local name = GetPlayerName(source)
-		TriggerClientEvent("sendProximityMessage", -1, source, name, message)
-      end
-      CancelEvent()
-  end)
-  
-  RegisterCommand('me', function(source, args, user)
+--PROXIMITY 
+ RegisterCommand('me', function(source, args, user)
       local name = GetPlayerName(source)
       TriggerClientEvent("sendProximityMessageMe", -1, source, name, table.concat(args, " "))
   end, false)
 
-  RegisterCommand('do', function(source, args, user)
-      local name = GetPlayerName(source)
-      TriggerClientEvent("sendProximityMessageDo", -1, source, name, table.concat(args, " "))
-  end, false)
-
-  RegisterCommand('roll', function(source, args, user)
-    local name = GetPlayerName(source)
-    num = math.random(0, 10)
-    TriggerClientEvent("sendProximityMessageRoll", -1, source, name, num, table.concat(args, " "))
-  end, false)
-
-  RegisterCommand('twt', function(source, args, user)
-  	TriggerClientEvent('chatMessage', -1, "^0[^4Twitter^0] (^5@" .. GetPlayerName(source) .. "^0)", {30, 144, 255}, table.concat(args, " "))
-  end, false)
-
   RegisterCommand('ooc', function(source, args, user)
-  	TriggerClientEvent('chatMessage', -1, "OOC | " .. GetPlayerName(source), {128, 128, 128}, table.concat(args, " "))
+      local name = GetPlayerName(source)
+      TriggerClientEvent("sendProximityMessageOOC", -1, source, name, table.concat(args, " "))
   end, false)
 
-  RegisterCommand('ad', function(source, args, user)
-  	TriggerClientEvent('chatMessage', -1, "^1[ADVERT]: " .. GetPlayerName(source), {255,215,0}, table.concat(args, " "))
+--SERVERWIDE
+   RegisterCommand('gme', function(source, args, user)
+  	TriggerClientEvent('chatMessage', -1, " ^5 Global ^3 > ^0" .. GetPlayerName(source) .." ^1(#".. source ..")^0", {30, 144, 255}, table.concat(args, " "))
+  end, false)
+  
+   RegisterCommand('gooc', function(source, args, user)
+  	TriggerClientEvent('chatMessage', -1, " ^5 G-OOC ^3 > ^0" .. GetPlayerName(source) .. " ^1(#" .. source .. ")^0", {30, 144, 255}, table.concat(args, " "))
+  end, false)
+  
+  RegisterCommand('911cb', function(source, args, user)
+	TriggerClientEvent('chatMessage', -1, " ^4 911 | Call Back (#" .. source .. ")^0", {30, 144, 255}, table.concat(args, " "))
+end, false)
+
+  RegisterCommand('911r', function(source, args, user)
+	TriggerClientEvent('chatMessage', -1, " ^4^* 911 | Operator (#" .. source .. ")^0", {30, 144, 255}, "Emergency personnel are enroute")
+end, false)
+
+	RegisterCommand('twt', function(source, args, user)
+	local header = "(^4@".. GetPlayerName(source) .."^0)"
+	local message = table.concat(args, " ")
+	TriggerClientEvent("sendTwt", -1, header, message)
+  	--TriggerClientEvent('chatMessage', -1, "^0[^4Twitter^0] (^4@" .. GetPlayerName(source) .. "^0)", {30, 144, 255}, table.concat(args, " "))
+  end, false)
+  
+   RegisterCommand('twtas', function(source, args, user)
+	local header = "(^4@".. table.remove(args, 1) .."^0)"
+	local message = table.concat(args, " ")
+	local meta = GetPlayerName(source).. "(#" ..source.. ")"
+	print(meta .. ": " .. header .." ".. message) 
+	TriggerClientEvent("sendTwtas", -1, meta, header, message)
   end, false)
 
 function stringsplit(inputstr, sep)
